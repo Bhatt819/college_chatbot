@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Graphic Era Hill University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #002147;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .university-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 33, 71, 0.9), rgba(0, 33, 71, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Section Styling */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .section-title {
+            color: #002147;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ff0000;
+        }
+        
+        /* Course Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            background: #f0f4f8;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #002147;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: #002147;
+            color: white;
+        }
+        
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            border: 1px solid #eaeaea;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .course-header {
+            background: #002147;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .course-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .course-duration {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-details {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .course-details li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .course-details li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .course-btn {
+            display: inline-block;
+            background: #002147;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .course-btn:hover {
+            background: #003366;
+        }
+        
+        /* Highlights Section */
+        .highlights {
+            background: #e8f4fc;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 40px 0;
+            border-left: 5px solid #002147;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .highlight-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: #002147;
+            margin-bottom: 15px;
+        }
+        
+        /* Specializations */
+        .specializations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .specialization-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #002147;
+        }
+        
+        .specialization-item h4 {
+            color: #002147;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .university-name {
+                font-size: 1.4rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="logo-container">
+            <!-- Add your logo image here -->
+            <!-- <img src="/static/logo.png" alt="GEHU Logo" class="logo"> -->
+            <div class="university-name">GRAPHIC ERA HILL UNIVERSITY</div>
+        </div>
+        <p>Explore Our Wide Range of Academic Programs for a Bright Future</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>Academic Programs at GEHU</h1>
+            <p>Choose from 50+ Undergraduate, Postgraduate, and Doctoral Programs in Engineering, Sciences, Management, and Humanities</p>
+        </section>
+
+        <!-- Course Categories -->
+        <section class="section">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories">
+                <button class="category-btn active" data-category="all">All Programs</button>
+                <button class="category-btn" data-category="engineering">Engineering</button>
+                <button class="category-btn" data-category="management">Management</button>
+                <button class="category-btn" data-category="sciences">Sciences</button>
+                <button class="category-btn" data-category="computer">Computer Applications</button>
+                <button class="category-btn" data-category="humanities">Humanities</button>
+                <button class="category-btn" data-category="doctoral">Doctoral</button>
+            </div>
+
+            <!-- Engineering Courses -->
+            <div class="courses-grid" id="engineering-courses">
+                <!-- B.Tech -->
+                <div class="course-card" data-category="engineering">
+                    <div class="course-header">
+                        <div class="course-icon">⚙️</div>
+                        <h3>B.Tech (Bachelor of Technology)</h3>
+                        <div class="course-duration">4 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Computer Science & Engineering</li>
+                            <li>Electronics & Communication</li>
+                            <li>Mechanical Engineering</li>
+                            <li>Civil Engineering</li>
+                            <li>Information Technology</li>
+                            <li>Artificial Intelligence & Data Science</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> 10+2 with Physics, Chemistry, Mathematics</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- M.Tech -->
+                <div class="course-card" data-category="engineering">
+                    <div class="course-header">
+                        <div class="course-icon">🔬</div>
+                        <h3>M.Tech (Master of Technology)</h3>
+                        <div class="course-duration">2 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Computer Science & Engineering</li>
+                            <li>VLSI Design</li>
+                            <li>Power Systems</li>
+                            <li>Structural Engineering</li>
+                            <li>Thermal Engineering</li>
+                            <li>Communication Systems</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> B.Tech/B.E in relevant field</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Management Courses -->
+            <div class="courses-grid" id="management-courses">
+                <!-- BBA -->
+                <div class="course-card" data-category="management">
+                    <div class="course-header">
+                        <div class="course-icon">💼</div>
+                        <h3>BBA (Bachelor of Business Administration)</h3>
+                        <div class="course-duration">3 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Marketing Management</li>
+                            <li>Financial Management</li>
+                            <li>Human Resource Management</li>
+                            <li>International Business</li>
+                            <li>Entrepreneurship</li>
+                            <li>Digital Marketing</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> 10+2 in any stream</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- MBA -->
+                <div class="course-card" data-category="management">
+                    <div class="course-header">
+                        <div class="course-icon">📊</div>
+                        <h3>MBA (Master of Business Administration)</h3>
+                        <div class="course-duration">2 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Marketing Management</li>
+                            <li>Finance & Banking</li>
+                            <li>Human Resource Management</li>
+                            <li>Operations Management</li>
+                            <li>Information Technology</li>
+                            <li>International Business</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> Bachelor's degree in any discipline</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sciences Courses -->
+            <div class="courses-grid" id="sciences-courses">
+                <!-- B.Sc -->
+                <div class="course-card" data-category="sciences">
+                    <div class="course-header">
+                        <div class="course-icon">🔭</div>
+                        <h3>B.Sc (Bachelor of Science)</h3>
+                        <div class="course-duration">3 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Computer Science</li>
+                            <li>Physics</li>
+                            <li>Chemistry</li>
+                            <li>Mathematics</li>
+                            <li>Biotechnology</li>
+                            <li>Microbiology</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> 10+2 with Science stream</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- M.Sc -->
+                <div class="course-card" data-category="sciences">
+                    <div class="course-header">
+                        <div class="course-icon">🧪</div>
+                        <h3>M.Sc (Master of Science)</h3>
+                        <div class="course-duration">2 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Computer Science</li>
+                            <li>Physics</li>
+                            <li>Chemistry</li>
+                            <li>Mathematics</li>
+                            <li>Biotechnology</li>
+                            <li>Environmental Science</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> B.Sc in relevant subject</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Applications Courses -->
+            <div class="courses-grid" id="computer-courses">
+                <!-- BCA -->
+                <div class="course-card" data-category="computer">
+                    <div class="course-header">
+                        <div class="course-icon">💻</div>
+                        <h3>BCA (Bachelor of Computer Applications)</h3>
+                        <div class="course-duration">3 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Programming in C, C++, Java</li>
+                            <li>Web Development</li>
+                            <li>Database Management</li>
+                            <li>Software Engineering</li>
+                            <li>Data Structures</li>
+                            <li>Mobile Application Development</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> 10+2 in any stream</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- MCA -->
+                <div class="course-card" data-category="computer">
+                    <div class="course-header">
+                        <div class="course-icon">🖥️</div>
+                        <h3>MCA (Master of Computer Applications)</h3>
+                        <div class="course-duration">2 Years | Full Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Advanced Java Programming</li>
+                            <li>Artificial Intelligence</li>
+                            <li>Machine Learning</li>
+                            <li>Cloud Computing</li>
+                            <li>Cyber Security</li>
+                            <li>Big Data Analytics</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> Bachelor's degree with Mathematics</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctoral Programs -->
+            <div class="courses-grid" id="doctoral-courses">
+                <!-- Ph.D -->
+                <div class="course-card" data-category="doctoral">
+                    <div class="course-header">
+                        <div class="course-icon">🎓</div>
+                        <h3>Ph.D (Doctor of Philosophy)</h3>
+                        <div class="course-duration">3-5 Years | Full/Part Time</div>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-details">
+                            <li>Engineering & Technology</li>
+                            <li>Sciences</li>
+                            <li>Management Studies</li>
+                            <li>Humanities & Social Sciences</li>
+                            <li>Computer Applications</li>
+                            <li>Interdisciplinary Research</li>
+                        </ul>
+                        <p><strong>Eligibility:</strong> Master's degree in relevant field</p>
+                        <a href="/apply.html" class="course-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Highlights -->
+        <section class="highlights">
+            <h2 class="section-title">Why Choose Our Programs?</h2>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏆</div>
+                    <h3>Industry-Relevant Curriculum</h3>
+                    <p>Updated regularly with industry input</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">👨‍🏫</div>
+                    <h3>Experienced Faculty</h3>
+                    <p>PhD holders with industry experience</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🔬</div>
+                    <h3>Research Focus</h3>
+                    <p>State-of-the-art research facilities</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🌍</div>
+                    <h3>Global Exposure</h3>
+                    <p>International collaborations and exchange programs</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">💼</div>
+                    <h3>Placement Support</h3>
+                    <p>95% placement record with top companies</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏛️</div>
+                    <h3>Modern Infrastructure</h3>
+                    <p>Well-equipped labs and digital classrooms</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specializations -->
+        <section class="section">
+            <h2 class="section-title">Popular Specializations</h2>
+            <div class="specializations">
+                <div class="specialization-item">
+                    <h4>Artificial Intelligence & ML</h4>
+                    <p>Cutting-edge AI and Machine Learning courses with industry projects</p>
+                </div>
+                <div class="specialization-item">
+                    <h4>Data Science</h4>
+                    <p>Big Data Analytics, Data Mining, and Business Intelligence</p>
+                </div>
+                <div class="specialization-item">
+                    <h4>Cyber Security</h4>
+                    <p>Network Security, Ethical Hacking, and Digital Forensics</p>
+                </div>
+                <div class="specialization-item">
+                    <h4>Cloud Computing</h4>
+                    <p>AWS, Azure, and Google Cloud Platform training</p>
+                </div>
+                <div class="specialization-item">
+                    <h4>Internet of Things</h4>
+                    <p>IoT Architecture, Sensors, and Smart Systems</p>
+                </div>
+                <div class="specialization-item">
+                    <h4>Blockchain Technology</h4>
+                    <p>Cryptocurrency, Smart Contracts, and DApps</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/courses.html">Courses</a>
+            <a href="/apply.html">Admissions</a>
+            <a href="/contact.html">Contact</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Graphic Era Hill University. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">For course inquiries: courses@gehu.ac.in | Helpline: +91-135-1234567</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add logo if available
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoContainer = document.querySelector('.logo-container');
+            
+            // Try to load logo from static folder
+            const logo = new Image();
+            logo.src = '/static/logo.png';
+            logo.className = 'logo';
+            logo.alt = 'GEHU Logo';
+            
+            logo.onload = function() {
+                const uniName = document.querySelector('.university-name');
+                logoContainer.insertBefore(logo, uniName);
+            };
+            
+            logo.onerror = function() {
+                console.log('Logo not found, showing text only');
+            };
+            
+            // Course filtering functionality
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const courseCards = document.querySelectorAll('.course-card');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Show/hide courses based on category
+                    courseCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Initial animation for course cards
+            courseCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

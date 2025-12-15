@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Era Hill University - Dehradun</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background-color: #002147;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .top-bar {
+            background: #001835;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .contact-info i {
+            margin-right: 5px;
+            color: #4CAF50;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #4CAF50;
+        }
+        
+        .main-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 70px;
+            width: auto;
+        }
+        
+        .university-name {
+            color: white;
+        }
+        
+        .university-name h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .university-name p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #4CAF50;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4CAF50;
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .apply-btn {
+            background: #ff0000;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 20px;
+            transition: background 0.3s;
+        }
+        
+        .apply-btn:hover {
+            background: #cc0000;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 33, 71, 0.9), rgba(0, 33, 71, 0.8)), 
+                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #ff0000;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #cc0000;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            transition: background 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 20px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            border-radius: 10px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            color: #002147;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            color: #002147;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #ff0000;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            color: #002147;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .course-header {
+            background: #002147;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .course-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-content h3 {
+            color: #002147;
+            margin-bottom: 15px;
+        }
+        
+        .course-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .course-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .course-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        /* Founder Section */
+        .founder-section {
+            background: #002147;
+            color: white;
+            padding: 80px 20px;
+            border-radius: 10px;
+        }
+        
+        .founder-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .founder-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .founder-info h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .founder-info p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        /* International Programs */
+        .international-programs {
+            background: #f8f9fa;
+            padding: 60px;
+            border-radius: 10px;
+            border-left: 5px solid #002147;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .program-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .program-item i {
+            font-size: 2.5rem;
+            color: #002147;
+            margin-bottom: 20px;
+        }
+        
+        /* Campus Life */
+        .campus-life {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .campus-slider {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .campus-slider img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        /* Notices Section */
+        .notices-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .notice-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s;
+        }
+        
+        .notice-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .notice-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .notice-title {
+            color: #002147;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Events Section */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+        
+        .event-content {
+            padding: 25px;
+        }
+        
+        .event-date {
+            color: #ff0000;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            background: #002147;
+            color: white;
+            padding: 60px 20px;
+            border-radius: 10px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .link-group h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .link-group a {
+            display: block;
+            color: #ddd;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .link-group a:hover {
+            color: #4CAF50;
+        }
+        
+        /* Campus Tour */
+        .campus-tour {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .tour-btn {
+            background: #002147;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .tour-btn:hover {
+            background: #003366;
+        }
+        
+        /* Fee Structure Section */
+        .fee-section {
+            background: white;
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        
+        .fee-table th {
+            background: #002147;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .fee-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .fee-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .program-name {
+            font-weight: 600;
+            color: #002147;
+        }
+        
+        .fee-amount {
+            color: #ff0000;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #4CAF50;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links-horizontal {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .footer-links-horizontal a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links-horizontal a:hover {
+            color: #4CAF50;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content,
+            .campus-life,
+            .founder-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #002147;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 70px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +91-135-1234567</span>
+                    <span><i class="fas fa-envelope"></i> info@gehu.ac.in</span>
+                    <span><i class="fas fa-map-marker"></i> Dehradun, Uttarakhand</span>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="logo-container">
+                <!-- <img src="/static/logo.png" alt="GEHU Logo" class="logo"> -->
+                <div class="university-name">
+                    <h1>Graphic Era Hill University</h1>
+                    <p>Dehradun | NAAC 'A' Grade Accredited</p>
+                </div>
+            </div>
+            
+            <nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/courses.html">Courses</a></li>
+                    <li><a href="#fee-structure">Fees</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/apply.html" class="apply-btn">Apply Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>At the forefront of Quality Higher Education and Academic Excellence</h1>
+            <p>Founded in 2011, Graphic Era Hill University is a private university located in Dehradun, Uttarakhand, India, with the goal of providing world class-education with a clear focus on cutting-edge technologies, professional development of students, critical thinking and quality research.</p>
+            <div class="hero-buttons">
+                <a href="/apply.html" class="btn-primary">Apply Now</a>
+                <a href="/courses.html" class="btn-secondary">Explore Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">57+</div>
+                <div class="stat-label">Courses to choose from</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">33</div>
+                <div class="stat-label">Years of Academic Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Placement Record</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Recruiting Companies</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About University -->
+        <section class="section">
+            <h2 class="section-title">About Graphic Era Hill University</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Premier Institution in the Scenic City of Dehradun</h3>
+                    <p>Graphic Era Hill University is based in the magnificent and serene city of Dehradun, nestled in the valley surrounded by Rajaji National Park on one end and Clement Town Cantonment on the other. The University prides itself in its University regime that warrants the holistic development of all the students part of the Graphic Era Fraternity.</p>
+                    <p>The University has achieved numerous milestones in its glorious past on the basis of its academic rigor, consistently Top Performing Students and Alumni and an immensely strong and qualified teaching fraternity.</p>
+                    <a href="/about.html" class="btn-primary" style="display: inline-block; margin-top: 20px;">Learn More</a>
+                </div>
+                <div class="about-image">
+                     <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="GEHU Campus"> 
+                   
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="section">
+            <h2 class="section-title">Popular Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">⚙️</div>
+                        <h3>Engineering Programs</h3>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-list">
+                            <li>B.Tech - Computer Science</li>
+                            <li>B.Tech - Electronics & Communication</li>
+                            <li>B.Tech - Mechanical Engineering</li>
+                            <li>M.Tech - Various Specializations</li>
+                        </ul>
+                        <a href="/courses.html" class="btn-primary" style="display: block; text-align: center;">View All</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">💼</div>
+                        <h3>Management Programs</h3>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-list">
+                            <li>BBA - Bachelor of Business Admin</li>
+                            <li>MBA - Master of Business Admin</li>
+                            <li>B.Com - Bachelor of Commerce</li>
+                            <li>Integrated BBA+MBA</li>
+                        </ul>
+                        <a href="/courses.html" class="btn-primary" style="display: block; text-align: center;">View All</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-icon">💻</div>
+                        <h3>Computer Applications</h3>
+                    </div>
+                    <div class="course-content">
+                        <ul class="course-list">
+                            <li>BCA - Bachelor of Computer Apps</li>
+                            <li>MCA - Master of Computer Apps</li>
+                            <li>B.Sc - Computer Science</li>
+                            <li>M.Sc - Computer Science</li>
+                        </ul>
+                        <a href="/courses.html" class="btn-primary" style="display: block; text-align: center;">View All</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fee Structure -->
+        <section id="fee-structure" class="fee-section">
+            <h2 class="section-title">Course Fee Structure</h2>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Program</th>
+                        <th>Duration</th>
+                        <th>Annual Fee (INR)</th>
+                        <th>Total Fee (INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="program-name">B.Tech (CSE/IT/ECE)</td>
+                        <td>4 Years</td>
+                        <td class="fee-amount">₹1,75,000</td>
+                        <td class="fee-amount">₹7,00,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">B.Tech (ME/CE)</td>
+                        <td>4 Years</td>
+                        <td class="fee-amount">₹1,50,000</td>
+                        <td class="fee-amount">₹6,00,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">BCA</td>
+                        <td>3 Years</td>
+                        <td class="fee-amount">₹85,000</td>
+                        <td class="fee-amount">₹2,55,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">BBA</td>
+                        <td>3 Years</td>
+                        <td class="fee-amount">₹75,000</td>
+                        <td class="fee-amount">₹2,25,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">B.Sc (Computer Science)</td>
+                        <td>3 Years</td>
+                        <td class="fee-amount">₹65,000</td>
+                        <td class="fee-amount">₹1,95,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">MCA</td>
+                        <td>2 Years</td>
+                        <td class="fee-amount">₹1,20,000</td>
+                        <td class="fee-amount">₹2,40,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">MBA</td>
+                        <td>2 Years</td>
+                        <td class="fee-amount">₹1,50,000</td>
+                        <td class="fee-amount">₹3,00,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">M.Tech</td>
+                        <td>2 Years</td>
+                        <td class="fee-amount">₹1,30,000</td>
+                        <td class="fee-amount">₹2,60,000</td>
+                    </tr>
+                    <tr>
+                        <td class="program-name">Ph.D</td>
+                        <td>3-5 Years</td>
+                        <td class="fee-amount">₹60,000</td>
+                        <td class="fee-amount">₹1,80,000 - ₹3,00,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                <strong>Note:</strong> Fees are subject to change. Additional charges may apply for hostel, library, examination, etc.
+            </p>
+        </section>
+
+        <!-- Founder Section -->
+        <section class="founder-section">
+            <div class="founder-content">
+               
+                   
+                       
+                    </div>
+                </div>
+                <div class="founder-info">
+                    <h3>Prof. (Dr.) Kamal Ghanshala</h3>
+                    <p><strong>Founder President, Graphic Era Group of Institutions</strong></p>
+                    <p>The Founder-President of the prestigious Graphic Era Group of Institutions is a renowned academician and edupreneur. Prof. Ghanshala still continues to take classes of every student of Computer Science that passes out of Graphic Era Group of Institutions, ensuring a high level of competence in the core subjects of Data Structures and Algorithms.</p>
+                    <p>Amongst many laurels, he has been conferred the ‘Uttarakhand Ratna, 2007’ for outstanding contribution to quality Technical and Higher education and the ‘Visionary Edupreneur of India Award, 2017’ by Hon'ble Former President of India, Mr. Pranab Mukherjee.</p>
+                    <a href="/about.html" class="btn-secondary" style="display: inline-block; margin-top: 20px;">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- International Programs -->
+        <section class="section">
+            <h2 class="section-title">Go Global with Graphic Era!</h2>
+            <div class="international-programs">
+                <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">Tie-Ups with the TOP UNIVERSITIES of the World, open up doors of global opportunities for the students of Graphic Era. The University offers various programs in collaboration with the some of the best Universities Internationally.</p>
+                
+                <div class="program-grid">
+                    <div class="program-item">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3>3+1+1 Programs</h3>
+                        <p>3 years at GEHU + 1 year abroad + 1 year Master's</p>
+                    </div>
+                    <div class="program-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Semester Exchange</h3>
+                        <p>Study abroad for one or two semesters</p>
+                    </div>
+                    <div class="program-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Dual Degrees</h3>
+                        <p>Earn degrees from both GEHU and partner universities</p>
+                    </div>
+                    <div class="program-item">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>International Internships</h3>
+                        <p>Global work experience opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus Life -->
+        <section class="section">
+            <h2 class="section-title">Campus Life at GEHU</h2>
+            <div class="campus-life">
+                <div class="campus-slider">
+                     <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Campus Life"> 
+                   
+                        Campus Life Gallery
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: #002147; margin-bottom: 20px; font-size: 1.8rem;">Never a dull moment in the University</h3>
+                    <p style="margin-bottom: 20px;">Our beautiful campus is beaming with energy at all times and promises that you'll never have a dull moment. The Campus houses multiple student led-clubs and activities that keep our students engaged in a plethora of varied events ranging from Cultural to Sports.</p>
+                    <p style="margin-bottom: 20px;">The varied student fests followed by one of the grandest Campus Fests of the country, GRAFEST, promises an enthralling environment for Graphians throughout the year.</p>
+                    <ul style="list-style: none; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">🎭 Cultural Clubs & Societies</li>
+                        <li style="margin-bottom: 10px;">⚽ Sports Facilities & Tournaments</li>
+                        <li style="margin-bottom: 10px;">🎵 Annual Fest - GRAFEST</li>
+                        <li style="margin-bottom: 10px;">🎤 Technical & Cultural Events</li>
+                        <li style="margin-bottom: 10px;">📻 Campus Radio Station</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notices & Updates -->
+        <section class="section">
+            <h2 class="section-title">Notices & Updates</h2>
+            <div class="notices-section">
+                <div class="notice-item">
+                    <div class="notice-date">December 9, 2025</div>
+                    <div class="notice-title">Extension of Deadline for Depositing Academic Fees for Even Semesters...</div>
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">December 4, 2025</div>
+                    <div class="notice-title">PhD Admission Notification for the January 2026 Batch</div>
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">December 3, 2025</div>
+                    <div class="notice-title">Notice Regarding the Extension of Deadline for Academic Fee Submission...</div>
+                </div>
+                <div class="notice-item">
+                    <div class="notice-date">November 20, 2025</div>
+                    <div class="notice-title">Schedule for the End Semester Odd Term (Career Skill) Back...</div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" class="btn-primary">Read All Notices</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section class="section">
+            <h2 class="section-title">Recent Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image">
+                         <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event"> 
+                       
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">March 20, 2025</div>
+                        <h3>Expert Talk on Fashion Economics</h3>
+                        <p>A Glimpse into Industry Realities and Opportunities in Fashion Business</p>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                         <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event"> 
+                       
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">March 7, 2025</div>
+                        <h3>Expert Talk on Mutual Funds</h3>
+                        <p>Insights into Global Economy and Investment Strategies for Students</p>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image">
+                         <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event"> 
+                        
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">March 6, 2025</div>
+                        <h3>AutoCom-25 Conference</h3>
+                        <p>A Convergence of Innovation, Research, and Technological Excellence in Automobile Sector</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="btn-secondary">View More Events</a>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="quick-links">
+            <div class="links-grid">
+                <div class="link-group">
+                    <h3>Student Area</h3>
+                    <a href="#">ERP Login</a>
+                    <a href="#">Digital Library</a>
+                    <a href="#">Exam Portal</a>
+                    <a href="#">Fee Payment</a>
+                    <a href="#">Hostel Booking</a>
+                </div>
+                
+                <div class="link-group">
+                    <h3>Resources</h3>
+                    <a href="#">Alumni Connect</a>
+                    <a href="#">Placement Portal</a>
+                    <a href="#">Research Publications</a>
+                    <a href="#">MoU Collaborations</a>
+                    <a href="#">Anti-Ragging Cell</a>
+                </div>
+                
+                <div class="link-group">
+                    <h3>Information</h3>
+                    <a href="#">Academic Calendar</a>
+                    <a href="#">Syllabus & Curriculum</a>
+                    <a href="#">Faculty Directory</a>
+                    <a href="#">Campus Facilities</a>
+                    <a href="#">Transport Services</a>
+                </div>
+                
+                <div class="link-group">
+                    <h3>Support</h3>
+                    <a href="#">Grievance Redressal</a>
+                    <a href="#">Help Desk</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact Directory</a>
+                    <a href="#">Feedback Form</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus Tour -->
+        <section class="campus-tour">
+            <h2 class="section-title">360° Campus Tour</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px; text-align: center; font-size: 1.1rem;">Graphic Era's beautiful, green and serene campus is located in the scenic city of Dehradun. Centrally located, the campus is a 5 minute drive from ISBT, Dehradun, 20 minute drive from the Railway Station and 1 Hour away from the Dehradun Airport.</p>
+            <a href="#" class="tour-btn">Take Virtual Campus Tour</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Graphic Era Hill University</h3>
+                <p style="color: #bbb; margin-bottom: 20px;">Dehradun Campus<br>Bell Road, Clement Town<br>Dehradun, Uttarakhand - 248002</p>
+                <p style="color: #bbb;">
+                    <strong>Phone:</strong> +91-135-1234567<br>
+                    <strong>Email:</strong> info@gehu.ac.in<br>
+                    <strong>Admissions:</strong> admissions@gehu.ac.in
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/about.html">About University</a></li>
+                    <li><a href="/courses.html">Academic Programs</a></li>
+                    <li><a href="#fee-structure">Fee Structure</a></li>
+                    <li><a href="#">Placement Records</a></li>
+                    <li><a href="#">Scholarships</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Careers at GEHU</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">RTI Act</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div style="margin-bottom: 20px;">
+                    <a href="#" style="color: #bbb; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="color: #bbb; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: #bbb; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #bbb; margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="color: #bbb; font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p style="color: #bbb; font-size: 0.9rem;">Subscribe to our newsletter for updates</p>
+                <div style="margin-top: 15px;">
+                    <input type="email" placeholder="Your Email" style="padding: 10px; width: 70%; border: 1px solid #444; background: #333; color: white; border-radius: 3px;">
+                    <button style="padding: 10px 15px; background: #4CAF50; color: white; border: none; border-radius: 3px; cursor: pointer;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-links-horizontal">
+                <a href="#">Disclaimer</a>
+                <a href="#">Library</a>
+                <a href="#">Anti Ragging</a>
+                <a href="#">Finance</a>
+                <a href="#">Grievance</a>
+                <a href="#">RTI</a>
+            </div>
+            <p>© 2025 Graphic Era Hill University, Dehradun. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">NAAC 'A' Grade Accredited | UGC Approved | AICTE Approved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.querySelector('.nav-menu');
+            const button = document.querySelector('.mobile-menu-btn');
+            
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+        
+        // Add active class to current page in nav
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href').split('/').pop();
+            if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#') && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Logo loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoContainer = document.querySelector('.logo-container');
+            const logo = new Image();
+            logo.src = '/static/logo.png';
+            logo.className = 'logo';
+            logo.alt = 'GEHU Logo';
+            
+            logo.onload = function() {
+                const uniName = document.querySelector('.university-name');
+                logoContainer.insertBefore(logo, uniName);
+            };
+        });
+    </script>
+</body>
+</html>

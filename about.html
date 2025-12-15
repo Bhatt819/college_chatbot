@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Graphic Era Hill University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #002147;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .university-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 33, 71, 0.9), rgba(0, 33, 71, 0.9)), 
+                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Section Styling */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .section-title {
+            color: #002147;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ff0000;
+        }
+        
+        /* About Content */
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background: #e8f4fc;
+            border-left: 4px solid #002147;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Milestones */
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .milestone-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .milestone-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .milestone-number {
+            font-size: 2.5rem;
+            color: #002147;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .milestone-text {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        /* Vision Mission */
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .vm-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 4px solid #002147;
+        }
+        
+        .vm-card h3 {
+            color: #002147;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Leadership */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .leader-card {
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .leader-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: #e8f4fc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #002147;
+        }
+        
+        .leader-card h3 {
+            color: #002147;
+            margin-bottom: 5px;
+        }
+        
+        .leader-card p {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Accreditation */
+        .accreditation {
+            background: #002147;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .accreditation h2 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .accreditation-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 200px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .university-name {
+                font-size: 1.4rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .accreditation-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="logo-container">
+            <!-- Add your logo image here -->
+            <!-- <img src="/static/logo.png" alt="GEHU Logo" class="logo"> -->
+            <div class="university-name">GRAPHIC ERA HILL UNIVERSITY</div>
+        </div>
+        <p>Excellence in Education, Research, and Innovation Since 1993</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>About Graphic Era Hill University</h1>
+            <p>A Premier Institution Transforming Lives Through Quality Education and Innovation</p>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <p>Established in 1993 as Graphic Era Institute, Graphic Era Hill University has evolved into one of India's premier educational institutions. What began as a small computer training center has now transformed into a full-fledged university, recognized for its academic excellence and research contributions.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>From humble beginnings to a NAAC 'A' Grade accredited university, our journey reflects our commitment to providing quality education and creating leaders of tomorrow.</strong></p>
+                </div>
+                
+                <p>Located in the picturesque city of Dehradun, nestled in the foothills of the Himalayas, our campus provides an ideal environment for learning and innovation. With state-of-the-art infrastructure, experienced faculty, and a focus on holistic development, we prepare students to excel in a rapidly changing global landscape.</p>
+                
+                <p>Today, GEHU stands tall as a symbol of educational excellence, with over 25,000 alumni making significant contributions across the globe in various fields including technology, business, research, and social development.</p>
+            </div>
+        </section>
+
+        <!-- Milestones Section -->
+        <section class="section">
+            <h2 class="section-title">Our Achievements</h2>
+            <div class="milestones-grid">
+                <div class="milestone-card">
+                    <div class="milestone-number">1993</div>
+                    <div class="milestone-text">Founded as Graphic Era Institute</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-number">A+</div>
+                    <div class="milestone-text">NAAC Accreditation Grade</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-number">25K+</div>
+                    <div class="milestone-text">Successful Alumni</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-number">95%</div>
+                    <div class="milestone-text">Placement Record</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-number">200+</div>
+                    <div class="milestone-text">Recruiting Companies</div>
+                </div>
+                <div class="milestone-card">
+                    <div class="milestone-number">50+</div>
+                    <div class="milestone-text">Academic Programs</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission -->
+        <section class="section">
+            <h2 class="section-title">Vision & Mission</h2>
+            <div class="vision-mission">
+                <div class="vm-card">
+                    <h3>Our Vision</h3>
+                    <p>To emerge as a world-class university that fosters excellence in teaching, research, and innovation, creating globally competent professionals and leaders who contribute to sustainable development of society.</p>
+                </div>
+                <div class="vm-card">
+                    <h3>Our Mission</h3>
+                    <p>To provide quality education through innovative pedagogy, cutting-edge research, and industry collaboration. To develop ethical leaders with social responsibility and to create an inclusive environment that promotes intellectual growth and holistic development.</p>
+                </div>
+                <div class="vm-card">
+                    <h3>Our Values</h3>
+                    <p>• Excellence in Education<br>• Innovation & Research<br>• Integrity & Ethics<br>• Social Responsibility<br>• Global Perspective<br>• Student Centricity</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accreditation -->
+        <section class="accreditation">
+            <h2>Recognitions & Accreditations</h2>
+            <div class="accreditation-badges">
+                <div class="badge">
+                    <h3>NAAC 'A' Grade</h3>
+                    <p>Accredited by National Assessment and Accreditation Council</p>
+                </div>
+                <div class="badge">
+                    <h3>UGC Approved</h3>
+                    <p>Recognized by University Grants Commission</p>
+                </div>
+                <div class="badge">
+                    <h3>AICTE Approved</h3>
+                    <p>Approved by All India Council for Technical Education</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership -->
+        <section class="section">
+            <h2 class="section-title">University Leadership</h2>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-img">👨‍🏫</div>
+                    <h3>Prof. (Dr.) Kamal Ghanshala</h3>
+                    <p>Founder & President</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img">👩‍🏫</div>
+                    <h3>Prof. (Dr.) R. C. Joshi</h3>
+                    <p>Vice Chancellor</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img">👨‍💼</div>
+                    <h3>Prof. (Dr.) H. K. Pandey</h3>
+                    <p>Pro Vice Chancellor</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-img">👩‍💼</div>
+                    <h3>Dr. Sanjeev Kumar</h3>
+                    <p>Registrar</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campus Life -->
+        <section class="section">
+            <h2 class="section-title">Campus & Facilities</h2>
+            <div class="about-content">
+                <p>Spread over 50 acres of lush green campus in Dehradun, GEHU offers world-class infrastructure that includes:</p>
+                
+                <div style="margin: 25px 0; padding-left: 20px;">
+                    <p>• Modern classrooms with digital learning facilities</p>
+                    <p>• State-of-the-art laboratories and research centers</p>
+                    <p>• Central library with 1,00,000+ books and digital resources</p>
+                    <p>• Hostel facilities for boys and girls</p>
+                    <p>• Sports complex and gymnasium</p>
+                    <p>• Medical center and cafeteria</p>
+                    <p>• Wi-Fi enabled campus</p>
+                </div>
+                
+                <p>Our campus is designed to provide a conducive environment for learning, research, and overall personality development.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/apply.html">Admissions</a>
+            <a href="/contact.html">Contact</a>
+            <a href="#">Courses</a>
+            <a href="#">Placements</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Graphic Era Hill University. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Dehradun, Uttarakhand, India | Email: info@gehu.ac.in | Phone: +91-135-1234567</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add logo if available
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoContainer = document.querySelector('.logo-container');
+            
+            // Try to load logo from static folder
+            const logo = new Image();
+            logo.src = '/static/logo.png';
+            logo.className = 'logo';
+            logo.alt = 'GEHU Logo';
+            
+            logo.onload = function() {
+                // If logo loads successfully, add it before university name
+                const uniName = document.querySelector('.university-name');
+                logoContainer.insertBefore(logo, uniName);
+            };
+            
+            logo.onerror = function() {
+                // If logo doesn't exist, show text only
+                console.log('Logo not found, showing text only');
+            };
+            
+            // Animation for milestone cards
+            const milestoneCards = document.querySelectorAll('.milestone-card');
+            milestoneCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s, transform 0.5s';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

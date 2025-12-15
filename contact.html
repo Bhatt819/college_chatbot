@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Graphic Era Hill University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #002147;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+        
+        .university-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Contact Info Section */
+        .contact-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .section-title {
+            color: #002147;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ff0000;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #002147;
+            transition: transform 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #002147;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card h3 {
+            color: #002147;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-card p {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        /* Contact Form */
+        .form-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #002147;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #002147;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .submit-btn {
+            background: #002147;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background: #003366;
+        }
+        
+        /* Campus Address */
+        .campus-section {
+            background: #002147;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .campus-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .address-details {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .address-details p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4CAF50;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .university-name {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="logo-container">
+            <!-- Add your logo image here -->
+            <!-- <img src="/static/logo.png" alt="GEHU Logo" class="logo"> -->
+            <div class="university-name">GRAPHIC ERA HILL UNIVERSITY</div>
+        </div>
+        <p>Contact Us - We're Here to Help You</p>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Contact Information -->
+        <section class="contact-section">
+            <h2 class="section-title">Get in Touch</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #666; max-width: 800px; margin: 0 auto 40px;">
+                Have questions about admissions, courses, or campus facilities? Our team is ready to assist you.
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone Numbers</h3>
+                    <p><strong>Admissions Helpline:</strong> +91-123-456-7890</p>
+                    <p><strong>General Enquiry:</strong> +91-987-654-3210</p>
+                    <p><strong>International Students:</strong> +91-999-888-7777</p>
+                    <p><em>Mon-Fri: 9:00 AM - 5:00 PM</em></p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Addresses</h3>
+                    <p><strong>Admissions:</strong> admissions@gehu.ac.in</p>
+                    <p><strong>General Information:</strong> info@gehu.ac.in</p>
+                    <p><strong>Placement Cell:</strong> placement@gehu.ac.in</p>
+                    <p><strong>International Office:</strong> international@gehu.ac.in</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">🏛️</div>
+                    <h3>Office Hours</h3>
+                    <p><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</p>
+                    <p><strong>Saturday:</strong> 9:00 AM - 1:00 PM</p>
+                    <p><strong>Sunday:</strong> Closed</p>
+                    <p><strong>Holidays:</strong> As per University Calendar</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="form-section">
+            <h2 class="section-title">Send Us a Message</h2>
+            
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select Subject</option>
+                            <option value="admission">Admission Inquiry</option>
+                            <option value="course">Course Information</option>
+                            <option value="fee">Fee Structure</option>
+                            <option value="placement">Placement Query</option>
+                            <option value="hostel">Hostel Facilities</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Please type your message here..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Campus Address -->
+        <section class="campus-section">
+            <h2>Visit Our Campus</h2>
+            <div class="address-details">
+                <p><strong>Graphic Era Hill University</strong></p>
+                <p>Bell Road, Clement Town</p>
+                <p>Dehradun, Uttarakhand - 248002</p>
+                <p>India</p>
+                
+                <div style="margin-top: 25px;">
+                    <p><strong>How to Reach:</strong></p>
+                    <p>📍 15 km from Dehradun Railway Station</p>
+                    <p>📍 25 km from Jolly Grant Airport</p>
+                    <p>📍 Well-connected by road from Delhi, Haridwar, and other major cities</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/apply.html">Admissions</a>
+            <a href="#">Courses</a>
+            <a href="#">Placements</a>
+            <a href="#">Campus Life</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Graphic Era Hill University. All Rights Reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Accredited with 'A' Grade by NAAC | Approved by UGC</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            let isValid = true;
+            
+            // Simple validation
+            for (let [key, value] of formData.entries()) {
+                if (this.elements[key].hasAttribute('required') && !value.trim()) {
+                    isValid = false;
+                    alert(`Please fill in the ${this.elements[key].labels[0].textContent}`);
+                    this.elements[key].focus();
+                    break;
+                }
+            }
+            
+            if (isValid) {
+                // Show success message
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+                this.reset();
+            }
+        });
+        
+        // Add logo if available
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoContainer = document.querySelector('.logo-container');
+            
+            // Try to load logo from static folder
+            const logo = new Image();
+            logo.src = '/static/logo.png';
+            logo.className = 'logo';
+            logo.alt = 'GEHU Logo';
+            
+            logo.onload = function() {
+                // If logo loads successfully, add it before university name
+                const uniName = document.querySelector('.university-name');
+                logoContainer.insertBefore(logo, uniName);
+            };
+            
+            logo.onerror = function() {
+                // If logo doesn't exist, show text only
+                console.log('Logo not found, showing text only');
+            };
+        });
+    </script>
+</body>
+</html>
